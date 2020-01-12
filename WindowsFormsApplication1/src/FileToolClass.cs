@@ -82,6 +82,7 @@ namespace WindowsFormsApplication1
         #endregion
 
 
+
         #region
         //读取txt文件中总行数的方法
         public static int getFileLine(String _fileName)
