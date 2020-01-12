@@ -25,6 +25,10 @@ namespace WindowsFormsApplication1.src
             this.Jyje = splitFild[3];
         }
 
+        public void Filed2String() {
+            System.Console.WriteLine("客户编号="+Khbm+" 账户代号="+Zhdh+" 客户名称="+Khmc+" 交易金额="+Jyje +" num="+num);
+        }
+
         
         private string checkKhbm() 
         {
@@ -93,9 +97,9 @@ namespace WindowsFormsApplication1.src
 
             if (!StringToolClass.IsNumeric(jyje))
             {
-                if (jyje.Contains("\"") || jyje.Contains(","))
+                if (jyje.Contains("\""))
                 {
-                    return "文件第【" + num + "】行，原始文件中交易金额列格式不正确，有可能是金额字段列格式不为文本格式，请修改\n";
+                    return "文件第【" + num + "】行，原始文件中交易金额列格式不正确，有可能是EXCEL文档中金额字段列格式不为文本格式，请修改\n";
                 }
                 else 
                 {
@@ -108,11 +112,16 @@ namespace WindowsFormsApplication1.src
 
         public  string checkLine()
         {
+            Filed2String();
+            if (num == 0)
+            {
+                return null;
+            }
             string results = null;
 
-            if (checkJyje() != null || checkKhbm() != null || checkKhmc() != null || checkZhdh() != null) 
+            if (  checkKhbm() != null || checkZhdh() != null|| checkKhmc() != null ||  checkJyje() != null) 
             {
-                results = checkJyje()+"\r\n" + checkKhbm()+"\r\n" + checkKhmc()+"\r\n" + checkZhdh()+"\r\n";
+                results = checkKhbm()+ "\r\n" +checkZhdh() + "\r\n"+ checkKhmc() +"\r\n" + checkJyje() + "\r\n";
                 return results;
             }
 
@@ -156,11 +165,5 @@ namespace WindowsFormsApplication1.src
 
 
     }
-    class DfgzjmCkeckTool
-    {
-        public string checkLine(string line)
-        {
-            return null;
-        }
-    }
+   
 }

@@ -31,16 +31,26 @@ namespace WindowsFormsApplication1
             dialog.Title = "请选择需要校验的待加密文件";
             dialog.Filter = "待加密的csv文件（*.csv）|*.csv";
             //dialog.Filter = "所有文件(*.*)|*.*";
+
+            
+            //MessageBox.Show(file);
+            
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string file = dialog.FileName;
-                //MessageBox.Show(file);
                 file_path_textbox.Text = file;
                 this.check_file_button.Enabled = true;
             }
             else 
             {
-                this.check_file_button.Enabled = false;
+                if(FileToolClass.FileExists(file_path_textbox.Text))
+                {
+                    this.check_file_button.Enabled = true;
+                }
+                else
+                {
+                    this.check_file_button.Enabled = false;
+                }
             }
             result_text.Text = "";
             
@@ -67,8 +77,8 @@ namespace WindowsFormsApplication1
            int i = 0;
            foreach (string str in fileLineList)
            {
-            FileLine fileline= new FileLine(str,i+1);
-            MessageBox.Show(str);
+            FileLine fileline= new FileLine(str,i);
+            //MessageBox.Show(str);
             
             string result = fileline.checkLine();
             if (result != null)
@@ -76,6 +86,8 @@ namespace WindowsFormsApplication1
                 this.result_text.Text = result;
                 return;
             }
+
+            i++; 
             
            }
            this.result_text.Text = "恭喜你，文件格式完全正确，可以使用加密软件进行加密了。";

@@ -67,10 +67,12 @@
             // 
             // result_text
             // 
+            this.result_text.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.result_text.ForeColor = System.Drawing.Color.Red;
             this.result_text.Location = new System.Drawing.Point(32, 127);
             this.result_text.Multiline = true;
             this.result_text.Name = "result_text";
+            this.result_text.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.result_text.Size = new System.Drawing.Size(636, 123);
             this.result_text.TabIndex = 3;
             // 

@@ -6,7 +6,6 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-
     static class Program
     {
         /// <summary>
