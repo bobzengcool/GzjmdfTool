@@ -9,8 +9,6 @@ namespace WindowsFormsApplication1.src
 {
     class StringToolClass
     {
-
-
         public static bool IsNumeric(string value)
         {
             return Regex.IsMatch(value, @"^[+-]?\d*[.]?\d*$");
