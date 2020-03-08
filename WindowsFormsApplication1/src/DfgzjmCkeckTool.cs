@@ -95,7 +95,7 @@ namespace WindowsFormsApplication1.src
                 return "文件第【" + num + "】行，原始文件中交易金额字段为空，请修改\n";
             }
 
-            if (!StringToolClass.IsNumeric(jyje))
+            if (!StringToolClass.IsNumeric(jyje.Trim()))
             {
                 if (jyje.Contains("\""))
                 {
